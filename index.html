@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhidul Hasan — Product Designer</title>
+    <meta name="description" content="Senior Product Designer with 5+ years designing and scaling multi-sided platforms used by 5.7M+ users. Currently at Pathao, Dhaka." />
+    <meta property="og:title" content="Muhidul Hasan — Product Designer" />
+    <meta property="og:description" content="Senior Product Designer with 5+ years designing and scaling multi-sided platforms used by 5.7M+ users." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script>
+      (function() {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = saved === 'dark' || (!saved && prefersDark);
+        if (isDark) document.documentElement.classList.add('dark');
+        document.documentElement.style.backgroundColor = isDark ? '#0E0E0E' : '#ffffff';
+        document.body.style.backgroundColor = isDark ? '#0E0E0E' : '#ffffff';
+        var isDesktop = window.innerWidth >= 768;
+        var heroSrc = isDark
+          ? (isDesktop ? '/hero-dark-desktop.webp' : '/hero-dark.webp')
+          : '/hero-light.webp';
+        var link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = heroSrc;
+        document.head.appendChild(link);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
