@@ -211,12 +211,12 @@ const userJourneySteps = [
 ]
 
 const driverJourneySteps = [
-  { img: '/case-study/pathao/driver-journey-1.png', label: 'Driver home', sub: 'Connect feature visible' },
-  { img: '/case-study/pathao/driver-journey-2.png', label: 'Go online', sub: 'Activate Connect mode' },
-  { img: '/case-study/pathao/driver-journey-3.png', label: 'Show code', sub: '6-digit shareable code' },
-  { img: '/case-study/pathao/driver-journey-4.png', label: 'Passenger found', sub: 'Code matched' },
-  { img: '/case-study/pathao/driver-journey-5.png', label: 'Trip active', sub: 'En route to destination' },
-  { img: '/case-study/pathao/driver-journey-6.png', label: 'Trip complete', sub: 'Earnings settled' },
+  { img: '/case-study/pathao/driver-journey-1.png', label: 'Driver home' },
+  { img: '/case-study/pathao/driver-journey-2.png', label: 'Connect landing' },
+  { img: '/case-study/pathao/driver-journey-3.png', label: 'Connect method' },
+  { img: '/case-study/pathao/driver-journey-4.png', label: 'Input number' },
+  { img: '/case-study/pathao/driver-journey-5.png', label: 'Input OTP' },
+  { img: '/case-study/pathao/driver-journey-6.png', label: 'Connected' },
 ]
 
 const finalFlowSteps = [
@@ -262,7 +262,7 @@ export default function PathaoConnect() {
       {/* Hero text */}
       <header className="max-w-5xl mx-auto px-6 pt-16 pb-12">
         <p className="text-xs font-mono text-neutral-400 dark:text-neutral-500 uppercase tracking-widest mb-6">
-          Pathao · 2025 · Senior Product Designer
+          Pathao · 2025
         </p>
         <SplitWords
           text="Bringing street-side rides onto the platform, safely"
@@ -286,15 +286,15 @@ export default function PathaoConnect() {
 
       {/* Hero image — full-width 3-phone gallery */}
       <RevealImage className="w-full mb-20">
-        <div className="w-full bg-neutral-50 dark:bg-neutral-900 py-12 flex items-end justify-center gap-4 md:gap-8 overflow-hidden">
+        <div className="w-full bg-neutral-50 dark:bg-neutral-900 py-12 flex items-end justify-center gap-6 md:gap-10 overflow-hidden">
           {[
-            { src: '/case-study/pathao/hero-mockup-1.png', offset: 0 },
-            { src: '/case-study/pathao/hero-mockup-2.png', offset: -28 },
-            { src: '/case-study/pathao/hero-mockup-3.png', offset: 0 },
-          ].map((item, i) => (
+            '/case-study/pathao/hero-mockup-1.png',
+            '/case-study/pathao/hero-mockup-2.png',
+            '/case-study/pathao/hero-mockup-3.png',
+          ].map((src, i) => (
             <motion.img
               key={i}
-              src={item.src}
+              src={src}
               alt=""
               aria-hidden="true"
               style={{
@@ -302,11 +302,11 @@ export default function PathaoConnect() {
                 width: 'auto',
                 borderRadius: 24,
                 boxShadow: '0 2px 0 0 rgba(0,0,0,0.06), 0 16px 48px -8px rgba(0,0,0,0.22)',
-                transform: `translateY(${item.offset}px)`,
                 flexShrink: 0,
+                display: 'block',
               }}
               initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: item.offset }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease, delay: 0.1 + i * 0.12 }}
             />
           ))}
@@ -558,7 +558,7 @@ export default function PathaoConnect() {
           <Reveal className="mb-10">
             <p className="text-xs font-mono text-neutral-400 dark:text-neutral-500 uppercase tracking-widest mb-6">User Flow Mapping</p>
             <h2 className="font-serif text-2xl md:text-3xl text-neutral-900 dark:text-neutral-100 mb-3 leading-snug">Mapping the two-sided product</h2>
-            <p className="text-neutral-500 dark:text-neutral-400 max-w-xl">Before hi-fi design, we mapped the full experience for both sides — passenger and rider — then traced how they converge at the code exchange moment.</p>
+            <p className="text-neutral-500 dark:text-neutral-400 max-w-xl">Before hi-fi design, we mapped the full experience for both sides, passenger and rider, then traced how they converge at the code exchange moment.</p>
           </Reveal>
 
           <RevealGrid className="grid md:grid-cols-2 gap-4 mb-8" baseDelay={0.05} stagger={0.12}>
@@ -586,7 +586,7 @@ export default function PathaoConnect() {
             </div>
           </RevealImage>
           <Reveal distance={12} delay={0.1}>
-            <p className="text-xs text-neutral-400 dark:text-neutral-600 text-center">MVP flow — mapping the two-sided pairing experience before hi-fi design began</p>
+            <p className="text-xs text-neutral-400 dark:text-neutral-600 text-center">MVP flow: mapping the two-sided pairing experience before hi-fi design began</p>
           </Reveal>
         </div>
 
@@ -608,7 +608,7 @@ export default function PathaoConnect() {
             </div>
           </RevealImage>
           <Reveal distance={12} delay={0.1}>
-            <p className="text-xs text-neutral-400 dark:text-neutral-600 text-center">Lo-fi wireframes — exploring map-first vs. code-first entry points across 5 flows</p>
+            <p className="text-xs text-neutral-400 dark:text-neutral-600 text-center">Lo-fi wireframes: exploring map-first vs. code-first entry points across 5 flows</p>
           </Reveal>
         </div>
 
@@ -683,7 +683,7 @@ export default function PathaoConnect() {
             </div>
           </RevealImage>
           <Reveal distance={12} delay={0.15} className="mb-16">
-            <p className="text-xs text-neutral-400 dark:text-neutral-600 text-center">The code exchange is the trust moment — instant, physical, zero ambiguity</p>
+            <p className="text-xs text-neutral-400 dark:text-neutral-600 text-center">The code exchange is the trust moment: instant, physical, zero ambiguity</p>
           </Reveal>
 
           <Reveal className="mb-10">
@@ -712,7 +712,6 @@ export default function PathaoConnect() {
                       <div className="text-center">
                         <p className="text-xs font-mono text-neutral-400 dark:text-neutral-600 mb-0.5">0{i + 1}</p>
                         <p className="text-xs font-medium text-neutral-700 dark:text-neutral-300">{step.label}</p>
-                        <p className="text-xs text-neutral-400 dark:text-neutral-600">{step.sub}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -721,7 +720,7 @@ export default function PathaoConnect() {
             </div>
           </RevealImage>
           <Reveal distance={12} delay={0.15} className="mb-0">
-            <p className="text-xs text-neutral-400 dark:text-neutral-600 text-center">Rider earns ৳20 flat, no commission — the incentive structure that made this viable at scale</p>
+            <p className="text-xs text-neutral-400 dark:text-neutral-600 text-center">Free safety coverage, 0% commission: the incentive structure that made this viable at scale</p>
           </Reveal>
         </div>
 
