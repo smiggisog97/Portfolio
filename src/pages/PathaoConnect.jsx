@@ -36,12 +36,12 @@ function RevealImage({ children, delay = 0, className = '' }) {
   )
 }
 
-function SplitWords({ text, className = '', delay = 0, as: Tag = 'h2' }) {
+function SplitWords({ text, className = '', style = {}, delay = 0, as: Tag = 'h2' }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-4%' })
   const words = text.split(' ')
   return (
-    <Tag ref={ref} className={className}>
+    <Tag ref={ref} className={className} style={style}>
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden leading-[1.1]">
           <motion.span
@@ -52,7 +52,7 @@ function SplitWords({ text, className = '', delay = 0, as: Tag = 'h2' }) {
           >
             {word}
           </motion.span>
-          {i < words.length - 1 ? ' ' : null}
+          {i < words.length - 1 ? ' ' : null}
         </span>
       ))}
     </Tag>
@@ -86,7 +86,7 @@ const phoneStyle = {
 
 const stats = [
   { value: '200', unit: 'trips/day', label: 'Organic at launch' },
-  { value: '৳100K', unit: 'BDT', label: 'Insurance per user' },
+  { value: '100K', unit: 'BDT', label: 'Insurance per user' },
   { value: '0%', unit: 'commission', label: 'Flat ৳20 fee for riders' },
   { value: '−1', unit: 'funnel step', label: 'Map screen removed' },
 ]
@@ -268,15 +268,15 @@ export default function PathaoConnect() {
           text="Bringing street-side rides onto the platform, safely"
           as="h1"
           className="font-serif font-normal leading-tight mb-6 text-neutral-900 dark:text-neutral-100 max-w-3xl"
-          style={{ fontSize: 45 }}
+          style={{ fontSize: '45px', wordSpacing: '0.05em' }}
           delay={0.1}
         />
-        <p className="text-neutral-500 dark:text-neutral-400 max-w-2xl leading-relaxed" style={{ fontSize: 18 }}>
+        <p className="text-neutral-500 dark:text-neutral-400 max-w-2xl leading-relaxed" style={{ fontSize: '18px' }}>
           Pathao Connect digitizes Bangladesh's unregulated "khep" bike rides, pairing passengers with nearby Pathao riders instantly, with full tracking and insurance coverage.
         </p>
         {/* Meta pills */}
         <div className="flex flex-wrap gap-2 mt-8">
-          {['Mobile App', 'Consumer + Rider Apps', 'Two-sided Product', 'Safety', 'Bangladesh'].map(tag => (
+          {['Case study', 'Pathao Connect', 'Ride sharing safety', 'Bangladesh'].map(tag => (
             <span key={tag} className="text-xs font-mono text-neutral-500 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 rounded-full px-3 py-1">
               {tag}
             </span>
@@ -284,14 +284,32 @@ export default function PathaoConnect() {
         </div>
       </header>
 
-      {/* Hero image */}
-      <RevealImage className="max-w-5xl mx-auto px-6 mb-20">
-        <div className="rounded-2xl overflow-hidden bg-neutral-100 dark:bg-neutral-900">
-          <img
-            src="/case-study/pathao/hero.png"
-            alt="Pathao Connect — product overview"
-            className="w-full h-auto block"
-          />
+      {/* Hero image — full-width 3-phone gallery */}
+      <RevealImage className="w-full mb-20">
+        <div className="w-full bg-neutral-50 dark:bg-neutral-900 py-12 flex items-end justify-center gap-4 md:gap-8 overflow-hidden">
+          {[
+            { src: '/case-study/pathao/hero-mockup-1.png', offset: 0 },
+            { src: '/case-study/pathao/hero-mockup-2.png', offset: -28 },
+            { src: '/case-study/pathao/hero-mockup-3.png', offset: 0 },
+          ].map((item, i) => (
+            <motion.img
+              key={i}
+              src={item.src}
+              alt=""
+              aria-hidden="true"
+              style={{
+                height: 480,
+                width: 'auto',
+                borderRadius: 24,
+                boxShadow: '0 2px 0 0 rgba(0,0,0,0.06), 0 16px 48px -8px rgba(0,0,0,0.22)',
+                transform: `translateY(${item.offset}px)`,
+                flexShrink: 0,
+              }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: item.offset }}
+              transition={{ duration: 1.2, ease, delay: 0.1 + i * 0.12 }}
+            />
+          ))}
         </div>
       </RevealImage>
 
