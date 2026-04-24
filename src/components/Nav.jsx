@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Nav({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(() => typeof window !== 'undefined' && window.scrollY > 10)
@@ -30,9 +31,9 @@ export default function Nav({ theme, toggleTheme }) {
         className={`absolute inset-0 bg-white/75 dark:bg-white/[0.08] backdrop-blur-2xl dark:backdrop-blur-xl backdrop-saturate-[180%] dark:backdrop-saturate-150 ${!transitioning ? 'transition-opacity duration-500' : ''} ${showBg ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       />
       <div className="relative px-6 md:px-[126px] xl:px-[188px] h-14 flex items-center justify-between">
-        <a href="/" className="text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
+        <Link to="/" className="text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
           Muhidul Hasan
-        </a>
+        </Link>
         <div className="flex items-center gap-7">
           {['Work', 'About', 'Contact'].map((item) => (
             <a

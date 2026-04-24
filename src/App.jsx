@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
@@ -6,6 +7,7 @@ import Work from './components/Work'
 import About from './components/About'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
+import PathaoConnect from './pages/PathaoConnect'
 
 const footerEase = [0.16, 1, 0.3, 1]
 
@@ -56,8 +58,22 @@ export default function App() {
   const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark')
 
   return (
-    <div className="bg-white dark:bg-[#0E0E0E] text-neutral-900 dark:text-neutral-100 min-h-screen">
-<Nav theme={theme} toggleTheme={toggleTheme} />
+    <Routes>
+      <Route path="/case-study/pathao-connect" element={<PathaoConnect />} />
+      <Route path="*" element={<Portfolio theme={theme} toggleTheme={toggleTheme} />} />
+    </Routes>
+  )
+}
+
+function Portfolio({ theme, toggleTheme }) {
+  return (
+    <motion.div
+      className="bg-white dark:bg-[#0E0E0E] text-neutral-900 dark:text-neutral-100 min-h-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <Nav theme={theme} toggleTheme={toggleTheme} />
 
       <Hero theme={theme} />
 
@@ -70,7 +86,7 @@ export default function App() {
         <hr className="border-neutral-200 dark:border-neutral-800" />
       </main>
 
-      <div id="contact"></div>
+      <div id="contact" />
 
       {/* Mobile footer — stacked flow */}
       <div className="md:hidden">
@@ -99,6 +115,6 @@ export default function App() {
           </footer>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

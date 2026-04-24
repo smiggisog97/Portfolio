@@ -123,12 +123,12 @@ export default function Hero({ theme }) {
             {/* Mobile headline — 3 balanced lines */}
             <HeadlineWords
               lineGroups={mobileLines}
-              className="md:hidden text-[28px] leading-[1.3] text-neutral-900 dark:text-neutral-50"
+              className="md:hidden text-[45px] leading-[1.3] text-neutral-900 dark:text-neutral-50"
             />
             {/* Desktop headline — 2 controlled lines */}
             <HeadlineWords
               lineGroups={desktopLines}
-              className="hidden md:block text-[50px] leading-[1.1] text-neutral-900 dark:text-neutral-50"
+              className="hidden md:block text-[45px] leading-[1.1] text-neutral-900 dark:text-neutral-50"
             />
           </div>
 
@@ -136,7 +136,7 @@ export default function Hero({ theme }) {
           <div className="mt-10 md:mt-0 flex flex-col gap-7" style={{ transform: 'translateZ(0)' }}>
 
             <motion.p
-              className="text-[15px] text-neutral-600 dark:text-neutral-300 leading-[1.65]"
+              className="text-[16px] text-neutral-600 dark:text-neutral-300 leading-[1.65]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.4, ease, delay: 1.6 }}

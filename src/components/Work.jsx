@@ -1,10 +1,46 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import ScrollReveal from './ScrollReveal'
 import CaseModal from './CaseModal'
 import { cases } from '../data/cases'
 
 const projects = [
+  {
+    id: 'pathao_connect',
+    company: 'Pathao', year: '2025',
+    tag: 'Safety · Offline',
+    title: 'Pathao Connect',
+    summary: 'Bangladesh has 100K+ unregulated "khep" bike rides daily — no tracking, no insurance, real danger. Designed a code-based pairing system that makes street-hailing as fast as before, and as safe as the app.',
+    role: 'SENIOR PRODUCT DESIGNER',
+    stat: '200 ORGANIC TRIPS / DAY AT LAUNCH',
+    href: '/case-study/pathao-connect',
+    thumb: (
+      <div className="w-full max-w-[200px] space-y-3">
+        <div className="bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 p-4 space-y-3">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="h-2 w-2 rounded-full bg-green-500"></div>
+            <div className="h-1.5 w-20 bg-neutral-100 dark:bg-neutral-700 rounded-full"></div>
+          </div>
+          <div className="flex gap-1.5 justify-center">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className={`w-6 h-8 rounded-lg flex items-center justify-center text-xs font-mono font-semibold ${i < 4 ? 'bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-400' : 'bg-neutral-100 dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600 text-neutral-300 dark:text-neutral-600'}`}>
+                {i < 4 ? ['4','7','2','1'][i] : '·'}
+              </div>
+            ))}
+          </div>
+          <div className="h-7 w-full bg-green-500 rounded-xl flex items-center justify-center">
+            <div className="h-1.5 w-16 bg-white/60 rounded-full"></div>
+          </div>
+        </div>
+        <div className="flex gap-1.5">
+          <div className="h-1.5 flex-1 bg-green-200 dark:bg-green-900/50 rounded-full"></div>
+          <div className="h-1.5 flex-1 bg-neutral-100 dark:bg-neutral-800 rounded-full"></div>
+          <div className="h-1.5 flex-1 bg-neutral-100 dark:bg-neutral-800 rounded-full"></div>
+        </div>
+      </div>
+    ),
+  },
   {
     id: 'pathao_homepage',
     company: 'Pathao', year: '2024',
@@ -119,34 +155,64 @@ export default function Work() {
         </ScrollReveal>
 
         <div className="grid gap-5">
-          {projects.map((p, i) => (
-            <ScrollReveal key={p.id} delay={i * 0.12}>
-              <motion.article
-                className="border border-neutral-200 dark:border-neutral-800 rounded-[18px] overflow-hidden cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2"
-                onClick={() => setActiveCase(cases[p.id])}
-                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setActiveCase(cases[p.id])}
-                tabIndex={0}
-                role="button"
-                aria-label={`View case study: ${p.title}`}
-                whileHover={{ y: -2, boxShadow: '0 8px 20px rgba(0,0,0,0.06)' }}
-                whileTap={{ scale: 0.998, y: -1 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="grid md:grid-cols-[1fr_2fr]">
-                  <div className="bg-neutral-50 dark:bg-neutral-900 p-8 md:p-12 flex items-center justify-center min-h-[220px] md:min-h-[280px]">
-                    {p.thumb}
-                  </div>
-                  <div className="p-8 md:p-12 flex flex-col justify-center">
-                    <h3 className="font-serif font-normal mb-3 text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors" style={{fontSize: '22px'}}>
-                      {p.title}
-                    </h3>
-                    <p className="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed mb-6 max-w-md">{p.summary}</p>
-                    <span className="text-xs font-mono text-neutral-400 dark:text-neutral-500">{p.stat}</span>
-                  </div>
+          {projects.map((p, i) => {
+            const cardInner = (
+              <div className="grid md:grid-cols-[1fr_2fr]">
+                <div className="bg-neutral-50 dark:bg-neutral-900 p-8 md:p-12 flex items-center justify-center min-h-[220px] md:min-h-[280px]">
+                  {p.thumb}
                 </div>
-              </motion.article>
-            </ScrollReveal>
-          ))}
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs font-mono text-neutral-400 dark:text-neutral-500 uppercase tracking-wider">{p.tag}</span>
+                  </div>
+                  <h3 className="font-serif font-normal mb-3 text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors" style={{fontSize: '22px'}}>
+                    {p.title}
+                  </h3>
+                  <p className="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed mb-6 max-w-md">{p.summary}</p>
+                  <span className="text-xs font-mono text-neutral-400 dark:text-neutral-500">{p.stat}</span>
+                </div>
+              </div>
+            )
+
+            if (p.href) {
+              return (
+                <ScrollReveal key={p.id} delay={i * 0.12}>
+                  <motion.div
+                    whileHover={{ y: -2, boxShadow: '0 8px 20px rgba(0,0,0,0.06)' }}
+                    whileTap={{ scale: 0.998, y: -1 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="rounded-[18px] overflow-hidden"
+                  >
+                    <Link
+                      to={p.href}
+                      className="block border border-neutral-200 dark:border-neutral-800 rounded-[18px] overflow-hidden cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2"
+                      aria-label={`View case study: ${p.title}`}
+                    >
+                      {cardInner}
+                    </Link>
+                  </motion.div>
+                </ScrollReveal>
+              )
+            }
+
+            return (
+              <ScrollReveal key={p.id} delay={i * 0.12}>
+                <motion.article
+                  className="border border-neutral-200 dark:border-neutral-800 rounded-[18px] overflow-hidden cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2"
+                  onClick={() => setActiveCase(cases[p.id])}
+                  onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setActiveCase(cases[p.id])}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`View case study: ${p.title}`}
+                  whileHover={{ y: -2, boxShadow: '0 8px 20px rgba(0,0,0,0.06)' }}
+                  whileTap={{ scale: 0.998, y: -1 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {cardInner}
+                </motion.article>
+              </ScrollReveal>
+            )
+          })}
         </div>
       </section>
 
