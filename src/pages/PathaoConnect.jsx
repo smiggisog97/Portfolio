@@ -724,9 +724,114 @@ export default function PathaoConnect() {
           </Reveal>
         </div>
 
-        <hr className="border-neutral-100 dark:border-neutral-800 mb-24" />
+      </div>
 
-        <hr className="border-neutral-100 dark:border-neutral-800 mb-24" />
+      {/* Safety Redesign — full-width breakout */}
+      <section
+        className="w-full overflow-hidden mt-24 relative"
+        style={{
+          background: 'linear-gradient(160deg, #0d2504 0%, #1B3A06 38%, #163003 68%, #091902 100%)',
+        }}
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(ellipse 70% 50% at 50% 10%, rgba(50,110,15,0.35) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        <div className="relative max-w-5xl mx-auto px-6 pt-20">
+          <Reveal className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-12">
+            <div>
+              <p className="text-xs font-mono text-green-400/60 uppercase tracking-widest mb-6">Safety Redesign</p>
+              <h2
+                className="text-3xl md:text-4xl text-white leading-snug mb-6"
+                style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 400 }}
+              >
+                Complete ride safety, built into every Connect trip
+              </h2>
+              <p className="text-sm leading-relaxed mb-8" style={{ color: 'rgba(220,255,210,0.65)' }}>
+                Every Pathao Connect trip includes real-time location sharing, emergency access, and insurance coverage. Safety is the default, not an add-on.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  'Real-time location sharing with trusted contacts',
+                  'One-tap emergency call to 999',
+                  'Dedicated helpline via 13301',
+                  '100,000 BDT insurance coverage per trip',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm" style={{ color: 'rgba(220,255,210,0.75)' }}>
+                    <span
+                      className="flex-shrink-0 mt-0.5"
+                      style={{
+                        width: 18, height: 18,
+                        borderRadius: '50%',
+                        border: '1px solid rgba(74,222,128,0.35)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      }}
+                    >
+                      <svg width="9" height="7" viewBox="0 0 9 7" fill="none">
+                        <path d="M1 3.5L3 5.5L8 1" stroke="#4ade80" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex items-center justify-center md:justify-end">
+              <img
+                src="/case-study/pathao/safety-element.png"
+                alt="Pathao Safety shield"
+                className="w-full max-w-[360px]"
+                style={{ filter: 'drop-shadow(0 20px 48px rgba(0,0,0,0.5))' }}
+              />
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="relative w-full" style={{ minHeight: 480 }}>
+          <img
+            src="/case-study/pathao/safety-bg-element.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute bottom-0 left-0 w-full h-auto"
+            style={{ opacity: 0.2, pointerEvents: 'none' }}
+          />
+          <div className="relative z-10 flex items-end justify-center gap-6 md:gap-10 px-6 pt-6 h-full" style={{ minHeight: 480 }}>
+            {[
+              '/case-study/pathao/safety-screen-1-new.png',
+              '/case-study/pathao/safety-screen-2-new.png',
+            ].map((src, i) => (
+              <motion.img
+                key={i}
+                src={src}
+                alt=""
+                aria-hidden="true"
+                style={{
+                  height: 460,
+                  width: 'auto',
+                  borderRadius: 24,
+                  boxShadow: '0 2px 0 0 rgba(0,0,0,0.18), 0 24px 64px -8px rgba(0,0,0,0.6)',
+                  flexShrink: 0,
+                  display: 'block',
+                }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-5%' }}
+                transition={{ duration: 1.3, ease, delay: 0.1 + i * 0.15 }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-5xl mx-auto px-6">
+
+        <hr className="border-neutral-100 dark:border-neutral-800 mb-24 mt-24" />
 
         {/* Impact */}
         <div className="mb-24">
