@@ -2,7 +2,7 @@ import ScrollReveal from './ScrollReveal'
 
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-28">
+    <section id="about" className="pt-10 pb-20 md:py-[85px]">
       <div className="grid md:grid-cols-[1fr_2fr] gap-16 md:gap-24">
         <ScrollReveal>
           <h2 className="text-xs font-mono text-neutral-400 dark:text-neutral-500 uppercase tracking-widest mb-6">About</h2>
@@ -15,20 +15,20 @@ export default function About() {
 
         <div className="space-y-5 text-neutral-600 dark:text-neutral-300 leading-relaxed">
           <ScrollReveal delay={0.05}>
-            <p className="font-serif text-[22px] font-normal leading-snug text-neutral-900 dark:text-neutral-100">
+            <p className="font-serif text-[22px] md:text-[26px] font-normal leading-snug text-neutral-900 dark:text-neutral-100">
               I studied Materials Engineering at BUET. I ended up in design because I kept caring more about how products worked than what they were made of.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <p>
-              Five years later, I've shipped consumer and B2B products used by millions — ride-hailing platforms, EdTech ecosystems, multi-country merchant tools. I work best in complex, cross-functional environments where the design problem is embedded inside a business problem.
+            <p className="text-[14px] md:text-base">
+              Five years later, I've shipped consumer and B2B products used by millions: ride-hailing platforms, EdTech ecosystems, multi-country merchant tools. I work best in complex, cross-functional environments where the design problem is embedded inside a business problem.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.25}>
-            <p>
-              I'm actively exploring AI-augmented design workflows — using Claude, Cursor, and vibe-coded prototypes to move faster and test more ideas in less time.
+            <p className="text-[14px] md:text-base">
+              I'm actively exploring AI-augmented design workflows: using Claude, Cursor, and vibe-coded prototypes to move faster and test more ideas in less time.
             </p>
           </ScrollReveal>
 

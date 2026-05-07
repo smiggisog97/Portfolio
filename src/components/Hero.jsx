@@ -102,7 +102,8 @@ export default function Hero({ theme }) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 pt-36 md:pt-52 pb-6 md:pb-20 px-6 md:px-[126px] xl:px-[188px]">
+      <div className="relative z-10 pt-36 md:pt-52 pb-6 md:pb-20">
+      <div className="max-w-5xl mx-auto px-6">
 
         {/* Eyebrow */}
         <motion.p
@@ -116,19 +117,19 @@ export default function Hero({ theme }) {
         </motion.p>
 
         {/* Editorial two-col */}
-        <div className="md:grid md:grid-cols-[3fr_2fr] md:gap-20 md:items-start">
+        <div className="md:grid md:grid-cols-[3fr_2fr] md:gap-16 md:items-start">
 
           {/* Left — Headline */}
           <div style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
             {/* Mobile headline — 3 balanced lines */}
             <HeadlineWords
               lineGroups={mobileLines}
-              className="md:hidden text-[45px] leading-[1.3] text-neutral-900 dark:text-neutral-50"
+              className="md:hidden text-[28px] leading-[1.3] text-neutral-900 dark:text-neutral-50"
             />
             {/* Desktop headline — 2 controlled lines */}
             <HeadlineWords
               lineGroups={desktopLines}
-              className="hidden md:block text-[45px] leading-[1.1] text-neutral-900 dark:text-neutral-50"
+              className="hidden md:block text-[38px] leading-[1.1] text-neutral-900 dark:text-neutral-50"
             />
           </div>
 
@@ -136,7 +137,7 @@ export default function Hero({ theme }) {
           <div className="mt-10 md:mt-0 flex flex-col gap-7" style={{ transform: 'translateZ(0)' }}>
 
             <motion.p
-              className="text-[16px] text-neutral-600 dark:text-neutral-300 leading-[1.65]"
+              className="text-[14px] md:text-[16px] text-neutral-600 dark:text-neutral-300 leading-[1.65]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.4, ease, delay: 1.6 }}
@@ -215,6 +216,7 @@ export default function Hero({ theme }) {
 
           </div>
         </div>
+      </div>
       </div>
 
       {/* Mobile only — full image below content, natural aspect ratio */}
