@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import Nav from './components/Nav'
@@ -42,40 +42,25 @@ function FooterImage({ className, wrapperStyle }) {
 }
 
 export default function App() {
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme')
-    if (saved) return saved
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-  })
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark')
-    document.documentElement.style.backgroundColor = theme === 'dark' ? '#0E0E0E' : '#ffffff'
-    document.body.style.backgroundColor = theme === 'dark' ? '#0E0E0E' : '#ffffff'
-    localStorage.setItem('theme', theme)
-  }, [theme])
-
-  const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark')
-
   return (
     <Routes>
       <Route path="/case-study/pathao-connect" element={<PathaoConnect />} />
-      <Route path="*" element={<Portfolio theme={theme} toggleTheme={toggleTheme} />} />
+      <Route path="*" element={<Portfolio />} />
     </Routes>
   )
 }
 
-function Portfolio({ theme, toggleTheme }) {
+function Portfolio() {
   return (
     <motion.div
-      className="bg-white dark:bg-[#0E0E0E] text-neutral-900 dark:text-neutral-100 min-h-screen"
+      className="bg-white text-neutral-900 min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
-      <Nav theme={theme} toggleTheme={toggleTheme} />
+      <Nav />
 
-      <Hero theme={theme} />
+      <Hero />
 
       <main className="max-w-5xl mx-auto px-6">
         <Work />

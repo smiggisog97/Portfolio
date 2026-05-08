@@ -73,7 +73,7 @@ export default function Work() {
                   <ScrollReveal delay={0.05}>
                     <h3
                       className="text-neutral-900 dark:text-neutral-100 leading-[1.15] mb-3 transition-colors group-hover:text-neutral-600 dark:group-hover:text-neutral-300 text-[22px] md:text-[26px]"
-                      style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 400 }}
+                      style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
                     >
                       {p.title}
                     </h3>

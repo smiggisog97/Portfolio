@@ -749,7 +749,7 @@ export default function PathaoConnect() {
               <p className="text-xs font-mono text-green-400/60 uppercase tracking-widest mb-6">Safety Redesign</p>
               <h2
                 className="text-3xl md:text-4xl text-white leading-snug mb-6"
-                style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 400 }}
+                style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
               >
                 Complete ride safety, built into every Connect trip
               </h2>

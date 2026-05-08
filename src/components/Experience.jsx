@@ -97,7 +97,7 @@ export default function Experience() {
                 <div className="flex items-baseline gap-x-5 gap-y-0.5 flex-wrap min-w-0">
                   <h3
                     className="font-normal text-[22px] text-neutral-900 dark:text-neutral-100 leading-snug transition-colors group-hover:text-neutral-600 dark:group-hover:text-neutral-300 shrink-0"
-                    style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
+                    style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {job.company}
                   </h3>

@@ -19,7 +19,7 @@
         var isDark = saved === 'dark' || (!saved && prefersDark);
         if (isDark) document.documentElement.classList.add('dark');
         document.documentElement.style.backgroundColor = isDark ? '#0E0E0E' : '#ffffff';
-        document.body.style.backgroundColor = isDark ? '#0E0E0E' : '#ffffff';
+        if (document.body) document.body.style.backgroundColor = isDark ? '#0E0E0E' : '#ffffff';
         var isDesktop = window.innerWidth >= 768;
         var heroSrc = isDark
           ? (isDesktop ? '/hero-dark-desktop.webp' : '/hero-dark.webp')
